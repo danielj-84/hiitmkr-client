@@ -1,70 +1,148 @@
-# Getting Started with Create React App
+# <span style="color:orangered">HIITmkr</span>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- Online demo: [SSL CoffeeDir](https://coffee-dir.herokuapp.com) | [No-SSL CoffeeDir](http://www.coffeedir.ca) -->
 
-## Available Scripts
+![HIITmkr Logo](src/assets/hiitmkr.png)
 
-In the project directory, you can run:
+### Making your HIIT workout more fun and more encouraging!
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br />
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### BRAINSTATION WEB DEVELOPMENT BOOTCAMP CAPSTONE PROJECT
 
-### `npm test`
+_The problem:_
+<span> I love the gym - other than beyond the keyboard, it’s my happy place. What I don’t particularly enjoy is long drawn out cardio workouts - which is why I’ve gravitated towards HIIT, or high-intensity interval training. With HIIT, you alternate between short intervals of high intensity exercise and low intensity exercise - you basically get the benefits of a long cardio session in a much shorter, albeit more intense, workout. The problem is that current apps often give you a countdown timer and a series of beeps - not too inspiring! I wanted to make an app to improve that experience and so HIITmkr will do just that by using your favourite artists to encourage you!</span>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br />
 
-### `npm run build`
+<h2 style="color: yellow">Tech stack</h2>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Font-end:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Create-react-app, React Router v6, Axios, Sass
+![front-end](readme/front-end.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Back-end:
 
-### `npm run eject`
+NodeJs, JSON Web Tokens (JWT), BCrypt, MongoDB, Mongoose
+![back-end](readme/back-end.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<br/>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<h2 style="color: yellow">Setup the project</h2>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Installation (in root directory, use terminal/bash commands)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+npm i
+cd client && npm i
+cd .. && cd server && npm i
+```
 
-## Learn More
+### Set up `.env` file inside `/server/` directory
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Pick a port to use to run the server (8080 is a good one to use)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+`PORT=*PORT NUMBER HERE*`
 
-### Code Splitting
+### Initialize a MongoDB database and include the connection string in `DB_CONNECTION` variable
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+`DB_CONNECTION=*DB CONNECTION STRING*`
 
-### Analyzing the Bundle Size
+### Secret for the JWT token generation (takes any string, but I suggest using `openssl rand -hex 25` in terminal to generate a quick random key key)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+`TOKEN_KEY=*SECRET TOKEN*`
 
-### Making a Progressive Web App
+<br/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<h2 style="color: yellow">Run the project</h2>
 
-### Advanced Configuration
+To run the project locally, write `npm run dev` in root directory of the project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+<br/>
 
-### Deployment
+<h2 style="color: yellow">Server end-points</h2>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<h2 style="color: #EEEEEE">/user </h2>
 
-### `npm run build` fails to minify
+/user/register - takes a user object
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```js
+{
+  username: "username string",
+  email: "email string",
+  password: "password string"
+}
+```
+
+/user/login - takes a user object and sends back a JWT token to be added to sessionStorage in the browser to be used for user authentication
+
+```js
+{
+  email: "email string",
+  password: "password string"
+}
+```
+
+<h2 style="color: #EEEEEE">/coffee </h2>
+
+/coffee - takes a large object with all the coffee information that includes user id, so the coffee can be tied to the user
+
+```js
+{
+  name: "coffee name",
+  roaster: "roaster name",
+  origin: "country of origin",
+  farm: "coffee farm",
+  description: "a large string with description",
+  flavours: ["array of strings"],
+  price: number,
+  link: "https url string",
+  score: number,
+  user_id: req.params.userId
+}
+```
+
+/coffee/:id - takes a large object with all the coffee information and uses request params to identify coffee to update
+
+```js
+{
+  name: "coffee name",
+  roaster: "roaster name",
+  origin: "country of origin",
+  farm: "coffee farm",
+  description: "a large string with description",
+  flavours: ["array of strings"],
+  price: number,
+  link: "https url string",
+  score: number,
+}
+```
+
+<br />
+
+---
+
+<h3>Hope you enjoy my project and collect some amazing brew, if you have any questions you can find me on  LinkedIn</h3>
+
+[https://www.linkedin.com/in/danielbutincode](https://www.linkedin.com/in/danielbutincode)
+
+---
+
+<br />
+
+### Credits:
+
+Background image:
+
+<a className="About__image-link" target="_blank" rel="noreferrer" href="https://www.freepik.com/vectors/coffee-branch">Coffee branch vector created by rattanachomphoo - www.freepik.com</a>
+
+Support and guidence (BrainStation Educators and TAs):
+
+Patrick McCullough: [https://github.com/pgmccullough](https://github.com/pgmccullough)
+
+Pavel Ispranikov:[https://github.com/pavelisp](https://github.com/pavelisp)
+
+Andres Beyra: [https://github.com/abeyra](https://github.com/abeyra)
