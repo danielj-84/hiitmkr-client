@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# <span style="color:orangered">HIITmkr</span>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- Online demo: [SSL CoffeeDir](https://coffee-dir.herokuapp.com) | [No-SSL CoffeeDir](http://www.coffeedir.ca) -->
 
-## Available Scripts
+![HIITmkr Logo](src/assets/hiitmkr.png)
 
-In the project directory, you can run:
+### Making your HIIT workout more fun and more encouraging!
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<br />
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### BRAINSTATION WEB DEVELOPMENT BOOTCAMP CAPSTONE PROJECT
 
-### `npm test`
+_The problem:_
+<span> I love the gym - other than beyond the keyboard, it’s my happy place. What I don’t particularly enjoy is long drawn out cardio workouts - which is why I’ve gravitated towards HIIT, or high-intensity interval training. With HIIT, you alternate between short intervals of high intensity exercise and low intensity exercise - you basically get the benefits of a long cardio session in a much shorter, albeit more intense, workout. The problem is that current apps often give you a countdown timer and a series of beeps - not too inspiring! I wanted to make an app to improve that experience and so HIITmkr will do just that by using your favourite artists to encourage you!</span>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br />
 
-### `npm run build`
+<h2 style="color: yellow">Tech stack</h2>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="80" height="80"/> </a>
+<a href="https://create-react-app.dev/" target="_blank" rel="noreferrer"> <img src="https://create-react-app.dev/img/logo.svg" alt="create-react-app" width="80" height="80"/> </a>
+<a href="https://sass-lang.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="80" height="80"/> </a>
+<a href="https://axios-http.com/" target="_blank" rel="noreferrer"> <img src="https://user-images.githubusercontent.com/8939680/57233883-20344080-6fe5-11e9-8169-1eeb4c782683.png" alt="Axios" width="160" height="80"/> </a>
+<a href="https://reactrouter.com/" target="_blank" rel="noreferrer"> <img src="https://miro.medium.com/max/1400/0*nH627PKQdg4-BCfj" alt="Axios" width="160" height="80"/> </a>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Back-end:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+NodeJs, JSON Web Tokens (JWT), BCrypt, MongoDB, Mongoose
+![back-end](readme/back-end.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<br/>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+<h2 style="color: yellow">Setup the project</h2>
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Installation (in root directory, use terminal/bash commands)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## In order for HIITmkr to function properly, the server (Spotify authentication) must also be installed : HIITmkr API: (https://github.com/danielj-84/hiitmkr-api.git)
 
-## Learn More
+```bash
+npm i
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Set up `.env` file inside `/server/` directory
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Pick a port to use to run the server (8080 is a good one to use)
 
-### Code Splitting
+`PORT=*PORT NUMBER HERE*`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Initialize a MongoDB database and include the connection string in `DB_CONNECTION` variable
 
-### Analyzing the Bundle Size
+`DB_CONNECTION=*DB CONNECTION STRING*`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Secret for the JWT token generation (takes any string, but I suggest using `openssl rand -hex 25` in terminal to generate a quick random key key)
 
-### Making a Progressive Web App
+`TOKEN_KEY=*SECRET TOKEN*`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<br/>
 
-### Advanced Configuration
+<h2 style="color: yellow">Run the project</h2>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+To run the project locally, write `npm run dev` in root directory of the project
 
-### Deployment
+<br/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<h2 style="color: yellow">Server end-points</h2>
 
-### `npm run build` fails to minify
+<h2 style="color: #EEEEEE">/user </h2>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+/user/register - takes a user object
+
+```js
+{
+  username: "username string",
+  email: "email string",
+  password: "password string"
+}
+```
+
+/user/login - takes a user object and sends back a JWT token to be added to sessionStorage in the browser to be used for user authentication
+
+```js
+{
+  email: "email string",
+  password: "password string"
+}
+```
+<h2 style="color: yellow">Next steps</h2>
+-return a dynamic list of a users top artists instead of a list of currated artists, so that upon selecting 3-5 favorites, your songs will reflect a greater variety
+
+-use song data to snap to a moment of high intensity or low intensity, instead of relying on a random part of the song
+
+
+<br />
+<br />
+<h3>Have a good workout! If you have any questions you can find me on  LinkedIn</h3>
+
+[https://www.linkedin.com/in/danielbutincode](https://www.linkedin.com/in/danielbutincode)
+
+---
+
+<br />
+
+### Credits:
+
+Support and guidence (BrainStation Educators and TAs):
+
+Patrick McCullough: [https://github.com/pgmccullough](https://github.com/pgmccullough)
+
+Pavel Ispranikov:[https://github.com/pavelisp](https://github.com/pavelisp)
+
+Andres Beyra: [https://github.com/abeyra](https://github.com/abeyra)
