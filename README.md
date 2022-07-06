@@ -19,12 +19,14 @@ _The problem:_
 
 <h2 style="color: yellow">Tech stack</h2>
 
-Font-end:
-
-Create-react-app, React Router v6, Axios, Sass
-![front-end](readme/front-end.png)
+<a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="80" height="80"/> </a>
+<a href="https://create-react-app.dev/" target="_blank" rel="noreferrer"> <img src="https://create-react-app.dev/img/logo.svg" alt="create-react-app" width="80" height="80"/> </a>
+<a href="https://sass-lang.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="80" height="80"/> </a>
+<a href="https://axios-http.com/" target="_blank" rel="noreferrer"> <img src="https://user-images.githubusercontent.com/8939680/57233883-20344080-6fe5-11e9-8169-1eeb4c782683.png" alt="Axios" width="160" height="80"/> </a>
+<a href="https://reactrouter.com/" target="_blank" rel="noreferrer"> <img src="https://miro.medium.com/max/1400/0*nH627PKQdg4-BCfj" alt="Axios" width="160" height="80"/> </a>
 
 Back-end:
+
 
 NodeJs, JSON Web Tokens (JWT), BCrypt, MongoDB, Mongoose
 ![back-end](readme/back-end.png)
@@ -35,10 +37,10 @@ NodeJs, JSON Web Tokens (JWT), BCrypt, MongoDB, Mongoose
 
 ### Installation (in root directory, use terminal/bash commands)
 
+## In order for HIITmkr to function properly, the server (Spotify authentication) must also be installed : HIITmkr API: (https://github.com/danielj-84/hiitmkr-api.git)
+
 ```bash
 npm i
-cd client && npm i
-cd .. && cd server && npm i
 ```
 
 ### Set up `.env` file inside `/server/` directory
@@ -85,47 +87,15 @@ To run the project locally, write `npm run dev` in root directory of the project
   password: "password string"
 }
 ```
+<h2 style="color: yellow">Next steps</h2>
+-return a dynamic list of a users top artists instead of a list of currated artists, so that upon selecting 3-5 favorites, your songs will reflect a greater variety
 
-<h2 style="color: #EEEEEE">/coffee </h2>
+-use song data to snap to a moment of high intensity or low intensity, instead of relying on a random part of the song
 
-/coffee - takes a large object with all the coffee information that includes user id, so the coffee can be tied to the user
-
-```js
-{
-  name: "coffee name",
-  roaster: "roaster name",
-  origin: "country of origin",
-  farm: "coffee farm",
-  description: "a large string with description",
-  flavours: ["array of strings"],
-  price: number,
-  link: "https url string",
-  score: number,
-  user_id: req.params.userId
-}
-```
-
-/coffee/:id - takes a large object with all the coffee information and uses request params to identify coffee to update
-
-```js
-{
-  name: "coffee name",
-  roaster: "roaster name",
-  origin: "country of origin",
-  farm: "coffee farm",
-  description: "a large string with description",
-  flavours: ["array of strings"],
-  price: number,
-  link: "https url string",
-  score: number,
-}
-```
 
 <br />
-
----
-
-<h3>Hope you enjoy my project and collect some amazing brew, if you have any questions you can find me on  LinkedIn</h3>
+<br />
+<h3>Have a good workout! If you have any questions you can find me on  LinkedIn</h3>
 
 [https://www.linkedin.com/in/danielbutincode](https://www.linkedin.com/in/danielbutincode)
 
@@ -134,10 +104,6 @@ To run the project locally, write `npm run dev` in root directory of the project
 <br />
 
 ### Credits:
-
-Background image:
-
-<a className="About__image-link" target="_blank" rel="noreferrer" href="https://www.freepik.com/vectors/coffee-branch">Coffee branch vector created by rattanachomphoo - www.freepik.com</a>
 
 Support and guidence (BrainStation Educators and TAs):
 
