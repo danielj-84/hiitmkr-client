@@ -120,13 +120,26 @@ export default function Dashboard({ code }) {
           }
           setPlaylist(newPlaylist);
           console.log(newPlaylist);
-        })
-      }, 
+        });
+      },
       function (err) {
         console.error(err);
       }
     );
   };
+
+//   const getMyArtists = () => {
+//     spotifyApi.getMyTopArtists()
+//   .then(function(data) {
+//     let topArtists = data.body.items;
+//     console.log(topArtists);
+//   }, function(err) {
+//     console.log('Something went wrong!', err);
+//   });
+// }
+
+// getMyArtists();
+
 
   // spotifyApi.getArtist('6M2wZ9GZgrQXHCFfjv46we')
   // .then(function(data) {
@@ -146,7 +159,9 @@ export default function Dashboard({ code }) {
               <div className="interval-choice__category">
                 <h4 className="interval-choice__heading">Intensity Interval</h4>
                 <div className="interval-choice__grouping">
-                  <p className="interval-choice__selection interval-choice__selection--default">30s</p>
+                  <p className="interval-choice__selection interval-choice__selection--default">
+                    30s
+                  </p>
                   <p className="interval-choice__selection">45s</p>
                   <p className="interval-choice__selection">60s</p>
                 </div>
@@ -155,7 +170,9 @@ export default function Dashboard({ code }) {
                 <h4 className="interval-choice__heading">Workout Duration</h4>
                 <div className="interval-choice__grouping">
                   <p className="interval-choice__selection">10m</p>
-                  <p className="interval-choice__selection interval-choice__selection--default">20m</p>
+                  <p className="interval-choice__selection interval-choice__selection--default">
+                    20m
+                  </p>
                   <p className="interval-choice__selection">30m</p>
                 </div>
               </div>
@@ -196,9 +213,13 @@ export default function Dashboard({ code }) {
         </section>
       </div>
       <section className="music-player">
-        <Player accessToken={accessToken} playlist={playlist} token={accessToken} />
+        <Player
+          accessToken={accessToken}
+          playlist={playlist}
+          token={accessToken}
+        />
       </section>
-      <Footer/>
+      <Footer />
     </>
   );
 }

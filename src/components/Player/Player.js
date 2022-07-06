@@ -11,9 +11,9 @@ export default function Player({ accessToken, playlist }) {
   const [play, setPlay] = useState(false);
   const [timer, setTimer] = useState(40);
   const trackUri0 = playlist[0]?.uri;
-  // let tracks = [trackUri0];
+  let tracks = [playlist[0]?.uri, playlist[1]?.uri, playlist[2]?.uri, playlist[3]?.uri, playlist[4]?.uri, playlist[5]?.uri];
 
-  // for (let i = 1; i < playlist.length; i++) {
+  // for (let i = 6; i < playlist.length; i++) {
   //   tracks.push(playlist[i]?.uri);
   // }
 
@@ -74,7 +74,7 @@ export default function Player({ accessToken, playlist }) {
         }}
         play={play}
         // uris={playlist ? tracks : []}
-        uris={playlist ? [playlist[0]?.uri, playlist[1]?.uri, playlist[2]?.uri, playlist[3]?.uri, playlist[4]?.uri, playlist[5]?.uri] : []}
+        uris={playlist ? tracks : []}
       />
     </>
   );
