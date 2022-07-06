@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap");
+html, body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.interval-choice {
+  width: 90%;
+  padding: 1rem;
+  background-color: #FAFAFA;
+  margin-block: 1.5rem;
+  margin-inline: 5%;
+  text-align: center;
+  font-family: "Arvo";
+  border-radius: 5px;
+  border: 5px solid black;
+  box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.5);
+}
+.interval-choice__category {
+  margin-top: 1rem;
+  border: 2px solid black;
+  padding: 0.5rem;
+  background-color: #E1E1E1;
+  width: 32%;
+}
+.interval-choice__selectors {
+  display: flex;
+  justify-content: space-between;
+}
+.interval-choice__grouping {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.interval-choice__heading {
+  font-size: 1rem;
+}
+.interval-choice__button {
+  padding: 0.5rem;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  margin-top: 1rem;
+}
+.interval-choice__selection {
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+.music-choice {
+  width: 90%;
+  text-align: center;
+  border: 5px solid black;
+  border-radius: 5px;
+  font-family: "Arvo";
+  margin-inline: 5%;
+  margin-block: 1.5rem;
+  background-color: #FAFAFA;
+  padding-block: 1rem;
+  box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.5);
+}
+
+.carousel {
+  margin-block: 1rem;
+  font-family: "Arvo";
+}
+.carousel__objects {
+  position: relative;
+}
+.carousel__image {
+  display: flex;
+  height: 185px;
+  width: 200px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 10px 2px rgba(0, 0, 0, 0.5);
+  color: white;
+}
+.carousel__image:active {
+  border: 2px red solid;
+}
+.carousel__artist-name {
+  position: absolute;
+  bottom: -7%;
+  right: 24%;
+  color: white;
+  font-weight: 700;
+  text-shadow: 2px 2px black;
+  font-size: 1.5rem;
+}
+
+.music-player {
+  background-color: #FAFAFA;
+  padding: 1rem 1rem 0 1rem;
+  margin-block: 1rem;
+  width: 90%;
+  margin-inline: 5%;
+  box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.5);
+  border: 5px solid black;
+}
+
+.main-title {
+  font-size: 2rem;
+}/*# sourceMappingURL=Dashboard.css.map */

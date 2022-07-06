@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap");
+html, body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: lightgray;
+}
+
+.app {
+  background-color: lightgray;
+}/*# sourceMappingURL=App.css.map */

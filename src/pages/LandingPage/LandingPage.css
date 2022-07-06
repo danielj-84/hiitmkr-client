@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap");
+html, body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.landing {
+  display: flex;
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+  z-index: 500;
+}
+.landing__more {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  transition: width linear 0.75s;
+  background: linear-gradient(rgba(247, 22, 52, 0.7), rgba(247, 22, 52, 0.7)), url(../../assets/moreinfo.jpg) no-repeat center/cover;
+}
+.landing__more:hover {
+  width: 150%;
+}
+.landing__login {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  transition: width linear 0.75s;
+  background: linear-gradient(rgba(50, 70, 80, 0.7), rgba(50, 70, 80, 0.7)), url(../../assets/login.jpg) no-repeat center/cover;
+}
+.landing__login:hover {
+  width: 150%;
+}
+.landing__title {
+  width: 85%;
+  font-size: 2rem;
+  color: #FAFAFA;
+  white-space: wrap;
+  font-family: "Arvo", serif;
+  text-align: center;
+  margin-bottom: 7rem;
+}
+.landing__link, .landing__link:hover {
+  padding: 1rem;
+  width: 12rem;
+  text-align: center;
+  color: #FAFAFA;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 1s;
+  margin-top: 2rem;
+  position: absolute;
+}
+.landing__link::before, .landing__link::after, .landing__link:hover::before, .landing__link:hover::after {
+  content: "";
+  position: absolute;
+  width: 15%;
+  height: 25%;
+  background: transparent;
+  transition: 1s;
+}
+.landing__link::before, .landing__link:hover::before {
+  top: 0px;
+  left: 0px;
+  border-top: 5px solid #FAFAFA;
+  border-left: 5px solid #FAFAFA;
+}
+.landing__link::after, .landing__link:hover::after {
+  top: 0px;
+  right: 0px;
+  border-top: 5px solid #FAFAFA;
+  border-right: 5px solid #FAFAFA;
+}
+.landing__link:hover::before, .landing__link:hover::after, .landing__link:hover:hover::before, .landing__link:hover:hover::after {
+  width: 50%;
+  height: 50%;
+}
+.landing__link-text {
+  text-decoration: none;
+  color: #FAFAFA;
+}
+.landing__link-text::before, .landing__link-text::after {
+  content: "";
+  position: absolute;
+  width: 15%;
+  height: 25%;
+  background: transparent;
+  transition: 1s;
+}
+.landing__link-text::before {
+  bottom: 0px;
+  left: 0px;
+  border-bottom: 5px solid #FAFAFA;
+  border-left: 5px solid #FAFAFA;
+}
+.landing__link-text::after {
+  bottom: 0px;
+  right: 0px;
+  border-bottom: 5px solid #FAFAFA;
+  border-right: 5px solid #FAFAFA;
+}
+
+.landing__link:hover .landing__link-text::before, .landing__link:hover .landing__link-text::after {
+  width: 50%;
+  height: 50%;
+}/*# sourceMappingURL=LandingPage.css.map */

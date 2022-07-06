@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap");
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/variables";
+@import "../../styles/partials/typography";
+@import "../../styles/partials/global";
+
+.landing-header {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  height: 15vh;
+  width: 100%;
+  background-color: rgb(44, 39, 39);
+  justify-content: center;
+  z-index: 999;
+  box-shadow: 0 -6px 15px 5px rgba(0, 0, 0, 0.5);
+
+  @include tablet {
+    height: 10vh;
+  }
+
+  &__linklogo {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    height: 80%;
+  }
+}

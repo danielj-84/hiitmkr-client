@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap");
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/variables";
+@import "../../styles/partials/typography";
+@import "../../styles/partials/global";
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  height: 15vh;
+  width: 100%;
+  background-color: rgb(44, 39, 39);
+  justify-content: space-between;
+  z-index: 999;
+  box-shadow: 0 -6px 15px 5px rgba(0, 0, 0, 0.5);
+
+  @include tablet {
+    flex-direction: row;
+    height: 10vh;
+    justify-content: space-between;
+  }
+
+  &__linklogo {
+    height: 70%;
+    display: flex;
+    align-items: center;
+
+    @include tablet {
+      height: 100%;
+      margin-left: 2rem;
+    }
+  }
+
+  &__logo {
+    height: 80%;
+  }
+
+  &__nav {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: space-between;
+    width: 90%;
+
+    @include tablet {
+      margin: 0 2rem 0 0;
+      width: 50%;
+    }
+  }
+
+  &__nav-item {
+    font-size: .9rem;
+    width: 10vh;
+    font-weight: 500;
+    color: white;
+    font-family: "Arvo", serif;
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+    &:hover {
+      text-decoration: none;
+      color: $hiitmkr-red-primary;
+    }
+
+    @include tablet {
+      letter-spacing: 0.2rem;
+      font-size: 1.15rem;
+      margin-left: 2.5rem;
+      font-weight: 700;
+      width: auto;
+    }
+  }
+}
