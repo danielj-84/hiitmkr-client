@@ -7,6 +7,7 @@ import Header from "../../components/Header/Header";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import axios from "axios";
+import Footer from "../../components/Footer/Footer";
 
 //carousel variables
 const responsive = {
@@ -143,17 +144,9 @@ export default function Dashboard({ code }) {
           <form className="interval-choice__form">
             <div className="interval-choice__selectors">
               <div className="interval-choice__category">
-                <h4 className="interval-choice__heading">High Intensity</h4>
+                <h4 className="interval-choice__heading">Intensity Interval</h4>
                 <div className="interval-choice__grouping">
-                  <p className="interval-choice__selection">30s</p>
-                  <p className="interval-choice__selection">45s</p>
-                  <p className="interval-choice__selection">60s</p>
-                </div>
-              </div>
-              <div className="interval-choice__category">
-                <h4 className="interval-choice__heading">Low Intensity</h4>
-                <div className="interval-choice__grouping">
-                  <p className="interval-choice__selection">30s</p>
+                  <p className="interval-choice__selection interval-choice__selection--default">30s</p>
                   <p className="interval-choice__selection">45s</p>
                   <p className="interval-choice__selection">60s</p>
                 </div>
@@ -162,7 +155,7 @@ export default function Dashboard({ code }) {
                 <h4 className="interval-choice__heading">Workout Duration</h4>
                 <div className="interval-choice__grouping">
                   <p className="interval-choice__selection">10m</p>
-                  <p className="interval-choice__selection">20m</p>
+                  <p className="interval-choice__selection interval-choice__selection--default">20m</p>
                   <p className="interval-choice__selection">30m</p>
                 </div>
               </div>
@@ -205,6 +198,7 @@ export default function Dashboard({ code }) {
       <section className="music-player">
         <Player accessToken={accessToken} playlist={playlist} token={accessToken} />
       </section>
+      <Footer/>
     </>
   );
 }

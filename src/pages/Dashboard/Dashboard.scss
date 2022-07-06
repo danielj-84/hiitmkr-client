@@ -38,7 +38,7 @@
     border: 2px solid black;
     padding: 0.5rem;
     background-color: $mercury;
-    width: 32%;
+    width: 47%;
 
     @include tablet {
       display: flex;
@@ -83,6 +83,10 @@
     padding-block: .5rem;
     background-color: $hiitmkr-almost-black;
     color: $alabaster;
+
+    &--default {
+      background-color: $hiitmkr-red-primary;
+    }
     
     @include tablet {
       font-size: 0.75rem;

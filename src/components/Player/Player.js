@@ -11,11 +11,11 @@ export default function Player({ accessToken, playlist }) {
   const [play, setPlay] = useState(false);
   const [timer, setTimer] = useState(40);
   const trackUri0 = playlist[0]?.uri;
-  let tracks = [trackUri0];
+  // let tracks = [trackUri0];
 
-  for (let i = 1; i < playlist.length; i++) {
-    tracks.push(playlist[i]?.uri);
-  }
+  // for (let i = 1; i < playlist.length; i++) {
+  //   tracks.push(playlist[i]?.uri);
+  // }
 
   //Set Access Token
   useEffect(() => {
@@ -73,7 +73,8 @@ export default function Player({ accessToken, playlist }) {
           if (!state.isPlaying) setPlay(false);
         }}
         play={play}
-        uris={playlist ? tracks : []}
+        // uris={playlist ? tracks : []}
+        uris={playlist ? [playlist[0]?.uri, playlist[1]?.uri, playlist[2]?.uri, playlist[3]?.uri, playlist[4]?.uri, playlist[5]?.uri] : []}
       />
     </>
   );

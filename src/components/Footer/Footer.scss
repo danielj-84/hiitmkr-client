@@ -1,13 +1,36 @@
+@import url("https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap");
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/variables";
+@import "../../styles/partials/typography";
+@import "../../styles/partials/global";
+
 .footer {
     display: flex;
     align-items: center;
     margin: 0;
-    height: 5vh;
+    height: 10vh;
     width: 100%;
     background-color: rgb(44, 39, 39);
     justify-content: space-between;
+    padding-inline: 2rem;
     z-index: 999;
     bottom: 0;
     position: fixed;
     box-shadow: 0 6px 15px 5px rgba(0,0,0,0.5);
+    font-family: "Arvo";
+    font-size: .75rem;
+
+    &__copyright {
+        color: $alabaster;
+    }
+
+    &__link {
+        color: $hiitmkr-red-primary;
+
+
+        &:hover {
+            color: $hiitmkr-red-primary;
+        }
+
+    }
 }
