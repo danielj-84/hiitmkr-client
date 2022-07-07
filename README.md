@@ -24,74 +24,56 @@ _The problem:_
 <a href="https://sass-lang.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="80" height="80"/> </a>
 <a href="https://axios-http.com/" target="_blank" rel="noreferrer"> <img src="https://user-images.githubusercontent.com/8939680/57233883-20344080-6fe5-11e9-8169-1eeb4c782683.png" alt="Axios" width="160" height="80"/> </a>
 <a href="https://reactrouter.com/" target="_blank" rel="noreferrer"> <img src="https://miro.medium.com/max/1400/0*nH627PKQdg4-BCfj" alt="Axios" width="160" height="80"/> </a>
-
-Back-end:
-
-
-NodeJs, JSON Web Tokens (JWT), BCrypt, MongoDB, Mongoose
-![back-end](readme/back-end.png)
+<a href="https://nodejs.org/en/" target="_blank" rel="noreferrer"> <img src="https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg" alt="NodeJS" width="80" height="80"/> </a>
+<a href="https://helmetjs.github.io/" target="_blank" rel="noreferrer"> <img src="https://repository-images.githubusercontent.com/3329923/2fd1c70a-c521-4087-9c1d-bf3e1fff3e4d" alt="helmetJS" width="160" height="80"/> </a>
+<a href="https://helmetjs.github.io/" target="_blank" rel="noreferrer"> <img src="https://miro.medium.com/max/1400/1*8ETcaw-gA1dYW4EFxqGK3w.png" alt="expressJS" width="160" height="80"/> </a>
 
 <br/>
 
 <h2 style="color: yellow">Setup the project</h2>
 
-### Installation (in root directory, use terminal/bash commands)
-
+### INSTALLATION NOTES
 ## In order for HIITmkr to function properly, the server (Spotify authentication) must also be installed : HIITmkr API: (https://github.com/danielj-84/hiitmkr-api.git)
 
+## To run HIITmkr, a Spotify Premium account is necessary to obtain a `client id`, `client secret`(rquired by Spotify for authentication) : https://developer.spotify.com/documentation/general/guides/authorization/app-settings/
+
+### Installation (in root directory, use terminal/bash commands)
+for both `hiitmkr-client` and `hiitmkr-api` : 
 ```bash
 npm i
 ```
 
-### Set up `.env` file inside `/server/` directory
+### Set up `.env` file inside `hiitmkr-api` directory
 
-### Pick a port to use to run the server (8080 is a good one to use)
+### Add `REDIRECT_URI` (i.e. `REDIRECT_URI=http://localhost:3000` if running locally)
 
-`PORT=*PORT NUMBER HERE*`
+### Add `CLIENT_ID`, `CLIENT_SECRET` (i.e. `CLIENT_ID=8db84fbb96fa4422b355b2d97d76dd6a`)
 
-### Initialize a MongoDB database and include the connection string in `DB_CONNECTION` variable
-
-`DB_CONNECTION=*DB CONNECTION STRING*`
-
-### Secret for the JWT token generation (takes any string, but I suggest using `openssl rand -hex 25` in terminal to generate a quick random key key)
-
-`TOKEN_KEY=*SECRET TOKEN*`
+### Add a `PORT` to use to run the server (i.e. `PORT=3001`)
 
 <br/>
 
 <h2 style="color: yellow">Run the project</h2>
 
-To run the project locally, write `npm run dev` in root directory of the project
+To run the project locally, write `npm start` in root directory of `hiitmkr-client` and `nodemon index.js` in root directory of `hiitmk-api`
 
 <br/>
 
 <h2 style="color: yellow">Server end-points</h2>
 
-<h2 style="color: #EEEEEE">/user </h2>
+<h3 style="color: #EEEEEE">/login </h3>
 
-/user/register - takes a user object
+/login allows the user to login using their own Spotify Credentials, authorizing an Access Token and a Refresh Token, valid for 60 minutes
 
-```js
-{
-  username: "username string",
-  email: "email string",
-  password: "password string"
-}
-```
+<h3 style="color: #EEEEEE">/refresh </h3>
 
-/user/login - takes a user object and sends back a JWT token to be added to sessionStorage in the browser to be used for user authentication
+/refresh allows for the token to be refreshed (this is done automatically)
 
-```js
-{
-  email: "email string",
-  password: "password string"
-}
-```
+
 <h2 style="color: yellow">Next steps</h2>
--return a dynamic list of a users top artists instead of a list of currated artists, so that upon selecting 3-5 favorites, your songs will reflect a greater variety
+-return a dynamic list of a users top artists instead of a list of currated artists, so that upon selecting 3-5 favorites, your songs will reflect a greater variety of artists
 
 -use song data to snap to a moment of high intensity or low intensity, instead of relying on a random part of the song
-
 
 <br />
 <br />
