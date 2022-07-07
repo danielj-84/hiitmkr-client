@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
         {code ? <Dashboard code={code} /> : <LandingPage />}
         {/* <Switch>
-          <Route path="/" component={LandingPage} />
+          <Route path="/" exact component={LandingPage} />
           <Route path="/workout" component={Workout} />
           <Route path="/login" component={Login}/>
           <Route path="/moreinfo" component={MoreInfo}/>

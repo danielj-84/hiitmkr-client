@@ -11,164 +11,68 @@
     justify-content: space-between;
   }
 }
-.interval-choice {
-  width: 90%;
-  padding: 1rem;
-  background-color: $alabaster;
-  margin-block: 1.5rem;
-  margin-inline: 5%;
-  text-align: center;
-  font-family: "Arvo";
-  border-radius: 5px;
-  border: 5px solid black;
-  box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.5);
-
-  @include tablet {
-    width: 45%;
-    margin-left: 3%;
-    margin-right: auto;
-  }
-
-  // &__form {
-
-  // }
-
-  &__category {
-    margin-top: 1rem;
-    border: 2px solid black;
-    padding: 0.5rem;
-    background-color: $mercury;
-    width: 47%;
-
-    @include tablet {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-  }
-
-  &__selectors {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &__grouping {
-    @include tablet {
-      display: flex;
-      justify-content: space-between;
-    }
-  }
-
-  &__heading {
-    font-size: 0.75rem;
-
-    @include tablet {
-      font-size: 1rem;
-    }
-  }
-
-  &__button {
-    padding: 0.5rem;
-    text-align: center;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-decoration: none;
-    margin-top: 1rem;
-  }
-
-  &__selection {
-    font-size: 0.74rem;
-    margin: 0;
-    border: 1px solid $hiitmkr-black;
-    padding-block: .5rem;
-    background-color: $hiitmkr-almost-black;
-    color: $alabaster;
-
-    &--default {
-      background-color: $hiitmkr-red-primary;
-    }
-    
-    @include tablet {
-      font-size: 0.75rem;
-      width: 31%;
-    }
-  }
-}
-
-.music-choice {
-  width: 90%;
-  text-align: center;
-  border: 5px solid black;
-  border-radius: 5px;
-  font-family: "Arvo";
-  margin-inline: 5%;
-  margin-block: 1.5rem;
-  background-color: $alabaster;
-  padding-block: 1rem;
-  box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.5);
-  
-  @include tablet {
-    width: 45%;
-    margin-right: 3%;
-    margin-left: auto;
-  }
-}
-
-.carousel {
-  margin-block: 1.5rem;
-  margin-bottom: 1rem;
-  font-family: "Arvo";
-
-  &__objects {
-    position: relative;
-    width: 100%;
-    
-  }
-
-  &__image {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 6px 10px 2px rgba(0, 0, 0, 0.5);
-    color: white;
-    border-radius: 5px;
-
-    &:active {
-      border: 2px red solid;
-    }
-  }
-
-  &__artist-name {
-    position: absolute;
-    bottom: -5%;
-    right: 5%;
-    color: white;
-    font-weight: 700;
-    text-shadow: 2px 2px black;
-    font-size: 1.2rem;
-  }
-}
 
 .music-player {
   background-color: $alabaster;
   padding: 1rem 1rem 0 1rem;
   margin-block: 1rem;
+  margin-bottom: 5rem;
   width: 90%;
   margin-inline: 5%;
   box-shadow: 0 3px 10px 2px rgba(0, 0, 0, 0.5);
   border: 5px solid black;
-  padding-block: 2rem;
+  padding-block: 1rem;
 
-  @include tablet {
-    width: 94%;
-    margin-inline: 3%;
-  }
 }
 
 .main-title {
   font-size: 1.25rem;
   @include tablet {
     font-size: 2rem;
+  }
+}
+
+.search {
+  margin-block: 2%;
+  margin-inline: 5%;
+  width: 90%;
+  font-family: "Arvo";
+  display: flex;
+  flex-direction: column;
+  background-color: $alabaster;
+  padding: 1rem;
+  border: 5px solid black;
+  text-align: center;
+  align-items: center;
+
+  &__artists {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__input {
+    width: 80%;
+    border: 3px solid black;
+    border-right: none;
+  }
+
+  &__button {
+    width:20%;
+    background-color: $alabaster;
+    color: $hiitmkr-black;
+    border: 3px solid black;
+  }
+
+  &__results {
+    max-height: 20vh;
+    width: 100%;
+    overflow-y: auto;
+    margin-block: 1rem;
   }
 }
