@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&display=swap");
+@import "../../styles/partials/mixins";
+@import "../../styles/partials/variables";
+@import "../../styles/partials/typography";
+@import "../../styles/partials/global";
+
+.moreinfo {
+    background-color: $alabaster;
+  &__main {
+    margin: 2% 5%;
+    width: 90%;
+    font-family: "Arvo";
+    display: flex;
+    flex-direction: column;
+    background-color: $alabaster;
+    padding: 1rem;
+    border: 5px solid black;
+    text-align: center;
+    align-items: center;
+
+    @include tablet {
+      width: 70%;
+      margin-inline: 15%;
+    }
+  }
+  &__title {
+    margin-block: 1rem;
+  }
+
+}

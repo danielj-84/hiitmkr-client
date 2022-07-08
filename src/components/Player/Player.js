@@ -11,7 +11,14 @@ export default function Player({ accessToken, playlist }) {
   const [play, setPlay] = useState(false);
   const [timer, setTimer] = useState(40);
   const trackUri0 = playlist[0]?.uri;
-  let tracks = [playlist[0]?.uri, playlist[1]?.uri, playlist[2]?.uri, playlist[3]?.uri, playlist[4]?.uri, playlist[5]?.uri];
+  let tracks = [
+    playlist[0]?.uri,
+    playlist[1]?.uri,
+    playlist[2]?.uri,
+    playlist[3]?.uri,
+    playlist[4]?.uri,
+    playlist[5]?.uri,
+  ];
 
   for (let i = 6; i < playlist.length; i++) {
     tracks.push(playlist[i]?.uri);
@@ -23,8 +30,10 @@ export default function Player({ accessToken, playlist }) {
     spotifyApi.setAccessToken(accessToken);
   }, [accessToken]);
 
+  //autoplay the music SDK
   useEffect(() => setPlay(true), [trackUri0]);
 
+  //start song at position 60s
   const seekToPosition = (positionMs) => {
     spotifyApi.seek(positionMs).then(
       function () {
@@ -36,21 +45,24 @@ export default function Player({ accessToken, playlist }) {
     );
   };
 
+  //switch to next song
   const skipSong = () => {
-    spotifyApi.skipToNext().then(
-      function () {
-        console.log("Skip to next");
-      },
-      function (err) {
-        console.log("Something went wrong!", err);
-      }
-    ).then(
-      function () {
+    spotifyApi
+      .skipToNext()
+      .then(
+        function () {
+          console.log("Skip to next song");
+        },
+        function (err) {
+          console.log("Something went wrong!", err);
+        }
+      )
+      .then(function () {
         seekToPosition(60000);
-      }
-    );
+      });
   };
 
+  //set 30s interval before song change
   useEffect(() => {
     const timeProg = setInterval(() => {
       skipSong();
@@ -74,6 +86,7 @@ export default function Player({ accessToken, playlist }) {
         }}
         play={play}
         uris={playlist ? tracks : []}
+        initialVolume={30}
       />
     </>
   );

@@ -51,7 +51,6 @@ export default function Dashboard({ code }) {
         Promise.all([
           spotifyApi.getRecommendations({
             min_energy: 0.7,
-            // min_danceability: 0.7,
             min_tempo: 130,
             min_popularity: 50,
             seed_artists: selectedArtists,
@@ -95,10 +94,9 @@ export default function Dashboard({ code }) {
 
   return (
     <>
-      <Header/>
+      <Header handleModal={handleModal}/>
       <section className="search">
         <h3 className="search__title">Set Up Your Workout</h3>
-        <button onClick={handleModal}>Modal</button>
         <h4 className="search__subtitle">Choose up to 3 artists :</h4>
 
         <div className="search__bar">

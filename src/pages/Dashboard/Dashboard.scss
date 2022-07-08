@@ -22,13 +22,10 @@
     margin-inline: 15%;
   }
 
-  &__title {
-
-  }
-
   &__subtitle {
     align-self: flex-start;
     font-size: 1rem;
+    margin-left: 10%;
   }
 
   &__artists {
@@ -37,7 +34,7 @@
   }
 
   &__bar {
-    width: 100%;
+    width: 80%;
     display: flex;
     justify-content: space-between;
   }
