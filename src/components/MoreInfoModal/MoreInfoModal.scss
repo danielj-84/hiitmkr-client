@@ -1,14 +1,15 @@
-@import "../../styles/partials/fonts";
+@import "../../styles/partials/typography";
 @import "../../styles/partials/mixins";
 @import "../../styles/partials/variables";
 
 * {
   box-sizing: border-box;
 }
+
 .modal {
   width: 100vw;
   height: 100vh;
-  background-color: $white;
+  background-color: white;
   padding: 1rem;
   z-index: 999;
   position: fixed;
@@ -42,12 +43,13 @@
   }
 
   &__title {
-    @include mobile__page-header;
+    font-size: 1.75rem;
+  line-height: 2.25rem;
   }
 
   &__text {
-    @include mobile__body-large;
-  }
+  font-size: 0.94rem;
+  line-height: 1.63rem;
 
   &__buttons {
     display: flex;
@@ -55,7 +57,7 @@
     margin-top: 15rem;
   }
   &__cancel {
-    @include mobile__body-small;
+    // @include mobile__body-small;
     height: 2rem;
     padding-inline: 1rem;
     width: 47%;
@@ -63,21 +65,22 @@
     margin-block: 1rem;
     border-radius: 20px;
     font-weight: 600;
-    background-color: $white;
-    color: $slate;
-    border: 1px solid $cloud;
+    background-color: white;
+    color: black;
+    border: 1px solid grey;
   }
   &__delete {
-    @include mobile__body-small;
+    // @include mobile__body-small;
     height: 2rem;
     padding-inline: 1rem;
     width: 47%;
     margin: 0;
     color: white;
     margin-block: 1rem;
-    background-color: $outOfStock-color;
+    // background-color: $outOfStock-color;
     border: none;
     border-radius: 20px;
     font-weight: 600;
   }
+}
 }

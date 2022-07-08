@@ -8,6 +8,8 @@ import axios from "axios";
 import Footer from "../../components/Footer/Footer";
 import SearchResults from "../../components/SearchResults/SearchResults";
 
+import MoreInfoModal from "../../components/MoreInfoModal/MoreInfoModal";
+
 //Create new instance of Spotify WebApi
 const spotifyApi = new SpotifyWebApi({
   clientId: "8db84fbb96fa4422b355b2d97d76dd6b",
@@ -87,21 +89,16 @@ export default function Dashboard({ code }) {
     );
   };
 
-  //   let image = "";
-  //   spotifyApi.getArtist(artist)
-  //     .then(function(data) {
-  //         <div>
-  //             <img src={data.body.images[0].url}/>
-  //             {/* {artist} */}
-  //           </div>
-  //       console.log('Artist information', data.body.images[0].url);
-  //     });
+  const handleModal = () => {
+    setModal(!modal);
+  }
 
   return (
     <>
-      <Header />
+      <Header/>
       <section className="search">
-        <h3 className="search__title">Search for HIIT inspiration</h3>
+        <h3 className="search__title">Set Up Your Workout</h3>
+        <button onClick={handleModal}>Modal</button>
         <h4 className="search__subtitle">Choose up to 3 artists :</h4>
 
         <div className="search__bar">
@@ -115,11 +112,6 @@ export default function Dashboard({ code }) {
             Search
           </button>
         </div>
-        {/* <div className="search__artists">
-          {selectedArtists.map((artist, index) => (
-            <div>{artist}</div>
-          ))}
-        </div> */}
         <div className="search__results">
           <SearchResults
             onChange={setSelectedArtists}
@@ -138,6 +130,8 @@ export default function Dashboard({ code }) {
         />
       </section>
       <Footer />
+      {modal ? <MoreInfoModal modal={modal} setModal={setModal}/> : null }
+      
     </>
   );
 }

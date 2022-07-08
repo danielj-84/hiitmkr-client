@@ -26,8 +26,9 @@ const SearchResults = ({results, onChange}) => {
   }
 
   return (
-    <List>
-      <button className="results__button" onClick={resetArtists}>Reset</button>
+    <>
+    <button className="results__button" onClick={resetArtists}>Reset</button>
+    <List className="results__list">
     {results.map((item, index) => (
       <ListItem key={item.id} dense button onClick={handleToggle(item.id)}>
         <ListItemIcon>
@@ -44,6 +45,7 @@ const SearchResults = ({results, onChange}) => {
       </ListItem>
       ))}
     </List>
+    </>
   );
 }
 

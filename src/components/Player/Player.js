@@ -12,7 +12,6 @@ export default function Player({ accessToken, playlist }) {
   const [timer, setTimer] = useState(40);
   const trackUri0 = playlist[0]?.uri;
   let tracks = [playlist[0]?.uri, playlist[1]?.uri, playlist[2]?.uri, playlist[3]?.uri, playlist[4]?.uri, playlist[5]?.uri];
-  const [intervalTimer, setIntervalTimer] = useState(30);
 
   for (let i = 6; i < playlist.length; i++) {
     tracks.push(playlist[i]?.uri);
@@ -25,10 +24,6 @@ export default function Player({ accessToken, playlist }) {
   }, [accessToken]);
 
   useEffect(() => setPlay(true), [trackUri0]);
-
-  // [] did mount
-  // no [] right to it on render
-  // [stuff] state change
 
   const seekToPosition = (positionMs) => {
     spotifyApi.seek(positionMs).then(
@@ -66,20 +61,6 @@ export default function Player({ accessToken, playlist }) {
       clearInterval(timeProg);
     };
   }, [timer]);
-  
-
-  // useEffect(() => {
-  //   const intervalTimer = setInterval(() => {
-  //     setIntervalTimer(intervalTimer - 1);
-  //   }, 1000);
-
-  //   return () => {
-  //     clearInterval(intervalTimer);
-  //   };
-  // }, [intervalTimer])
-
-
-
 
   if (!accessToken) return null;
   return (

@@ -1,8 +1,16 @@
 @import "../../styles/partials/variables";
 
-.results__button {
-    width:20%;
-    background-color: $alabaster;
-    color: $hiitmkr-black;
-    border: 3px solid black;
+.results {
+
+    &__button {
+        width:20%;
+        background-color: $alabaster;
+        color: $hiitmkr-black;
+        border: 2px solid black;
+    }
+
+    &__list {
+        height: 20vh;
+        overflow-y: scroll;
+    }
 }
