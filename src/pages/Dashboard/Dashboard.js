@@ -3,12 +3,10 @@ import "./Dashboard.scss";
 import useAuth from "../../useAuth";
 import Player from "../../components/Player/Player";
 import SpotifyWebApi from "spotify-web-api-node";
-import Header from "../../components/Header/Header";
+import LandingHeader from "../../components/LandingHeader/LandingHeader"
 import axios from "axios";
 import Footer from "../../components/Footer/Footer";
 import SearchResults from "../../components/SearchResults/SearchResults";
-
-import MoreInfoModal from "../../components/MoreInfoModal/MoreInfoModal";
 
 //Create new instance of Spotify WebApi
 const spotifyApi = new SpotifyWebApi({
@@ -21,7 +19,6 @@ export default function Dashboard({ code }) {
   const [searchString, setSearchString] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [selectedArtists, setSelectedArtists] = useState([]);
-  const [modal, setModal] = useState(false);
 
   //Set Access Token
   useEffect(() => {
@@ -51,7 +48,7 @@ export default function Dashboard({ code }) {
         Promise.all([
           spotifyApi.getRecommendations({
             min_energy: 0.7,
-            min_tempo: 130,
+            min_tempo: 135,
             min_popularity: 50,
             seed_artists: selectedArtists,
           }),
@@ -88,13 +85,9 @@ export default function Dashboard({ code }) {
     );
   };
 
-  const handleModal = () => {
-    setModal(!modal);
-  }
-
   return (
     <>
-      <Header handleModal={handleModal}/>
+      <LandingHeader/>
       <section className="search">
         <h3 className="search__title">Set Up Your Workout</h3>
         <h4 className="search__subtitle">Choose up to 3 artists :</h4>
@@ -127,9 +120,7 @@ export default function Dashboard({ code }) {
           token={accessToken}
         />
       </section>
-      <Footer />
-      {modal ? <MoreInfoModal modal={modal} setModal={setModal}/> : null }
-      
+      <Footer />      
     </>
   );
 }

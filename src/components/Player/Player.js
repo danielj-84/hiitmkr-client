@@ -9,18 +9,12 @@ const spotifyApi = new SpotifyWebApi({
 
 export default function Player({ accessToken, playlist }) {
   const [play, setPlay] = useState(false);
-  const [timer, setTimer] = useState(40);
+  // const [timer, setTimer] = useState(40);
+  const [intervals, setIntervals] = useState(40);
   const trackUri0 = playlist[0]?.uri;
-  let tracks = [
-    playlist[0]?.uri,
-    playlist[1]?.uri,
-    playlist[2]?.uri,
-    playlist[3]?.uri,
-    playlist[4]?.uri,
-    playlist[5]?.uri,
-  ];
+  let tracks = [playlist[0]?.uri];
 
-  for (let i = 6; i < playlist.length; i++) {
+  for (let i = 1; i < playlist.length; i++) {
     tracks.push(playlist[i]?.uri);
   }
 
@@ -51,7 +45,8 @@ export default function Player({ accessToken, playlist }) {
       .skipToNext()
       .then(
         function () {
-          console.log("Skip to next song");
+          setIntervals(intervals - 1);
+          console.log("Skip to next song", intervals);
         },
         function (err) {
           console.log("Something went wrong!", err);
@@ -66,18 +61,17 @@ export default function Player({ accessToken, playlist }) {
   useEffect(() => {
     const timeProg = setInterval(() => {
       skipSong();
-      setTimer(timer - 1);
-    }, 30000);
+    }, 10000);
 
     return () => {
       clearInterval(timeProg);
     };
-  }, [timer]);
+  }, [play]);
 
   if (!accessToken) return null;
   return (
     <>
-      <h4 className="player__timer">{timer} intervals left!</h4>
+      <h4 className={`player__timer ${intervals%2 === 0 ? "player__timer--high" : "player__timer--low"}`}>{intervals} intervals left!</h4>
       <SpotifyPlayer
         token={accessToken}
         showSaveIcon
@@ -86,7 +80,7 @@ export default function Player({ accessToken, playlist }) {
         }}
         play={play}
         uris={playlist ? tracks : []}
-        initialVolume={30}
+        initialVolume={10}
       />
     </>
   );

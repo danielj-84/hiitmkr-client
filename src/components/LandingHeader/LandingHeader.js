@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 function LandingHeader() {
   return (
     <div className="landing-header">
-        <NavLink to="/" className="landing-header__linklogo" > <img className="landing-header__logo" src={logo} alt=""></img></NavLink>
+        <a href="http://localhost:3000" className="landing-header__linklogo" > <img className="landing-header__logo" src={logo} alt=""></img></a>
       </div>
   )
 }

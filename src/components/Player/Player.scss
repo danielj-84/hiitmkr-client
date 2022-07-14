@@ -4,4 +4,12 @@
     font-family: "Arvo";
     text-align: center;
     margin-bottom: 1rem;
+
+    &--high {
+        color : green;
+    }
+
+    &--low {
+        color: rgb(146, 146, 40);
+    }
 }
