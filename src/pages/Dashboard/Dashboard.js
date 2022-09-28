@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import "./Dashboard.scss";
-import useAuth from "../../useAuth";
-import Player from "../../components/Player/Player";
-import SpotifyWebApi from "spotify-web-api-node";
-import LandingHeader from "../../components/LandingHeader/LandingHeader"
 import axios from "axios";
-import Footer from "../../components/Footer/Footer";
+import "./Dashboard.scss";
+import SpotifyWebApi from "spotify-web-api-node";
+import useAuth from "../../useAuth";
+import Header from "../../components/Header/Header";
 import SearchResults from "../../components/SearchResults/SearchResults";
+import Player from "../../components/Player/Player";
+import Footer from "../../components/Footer/Footer";
 
 //Create new instance of Spotify WebApi
 const spotifyApi = new SpotifyWebApi({
@@ -47,7 +47,7 @@ export default function Dashboard({ code }) {
       function (data) {
         Promise.all([
           spotifyApi.getRecommendations({
-            min_energy: 0.7,
+            min_energy: 0.8,
             min_tempo: 135,
             min_popularity: 50,
             seed_artists: selectedArtists,
@@ -87,19 +87,24 @@ export default function Dashboard({ code }) {
 
   return (
     <>
-      <LandingHeader/>
+      <Header />
       <section className="search">
-        <h3 className="search__title">Set Up Your Workout</h3>
-        <h4 className="search__subtitle">Choose up to 3 artists :</h4>
+        <h3 className="search__title">Choose your workout music</h3>
 
         <div className="search__bar">
           <input
             className="search__input"
             onChange={(event) => setSearchString(event.target.value)}
             value={searchString}
-            placeholder="Search for an artist by name"
+            placeholder="Search for up to 3 artists"
           ></input>
-          <button className="search__button" onClick={function(e) { searchSpotify(); setSearchString("") }}>
+          <button
+            className="search__button"
+            onClick={function (e) {
+              searchSpotify();
+              setSearchString("");
+            }}
+          >
             Search
           </button>
         </div>
@@ -110,7 +115,12 @@ export default function Dashboard({ code }) {
           />
         </div>
 
-        <button className="search__button" onClick={chooseMusic}>Lets HIIT it!</button>
+        <button
+          className="search__button search__button--start"
+          onClick={chooseMusic}
+        >
+          Lets HIIT it!
+        </button>
       </section>
 
       <section className="music-player">
@@ -120,7 +130,7 @@ export default function Dashboard({ code }) {
           token={accessToken}
         />
       </section>
-      <Footer />      
+      <Footer />
     </>
   );
 }

@@ -4,11 +4,11 @@
 @import "../../styles/partials/typography";
 @import "../../styles/partials/global";
 
-
 .search {
-  margin: 2% 5%;
+  margin: 2vh 5%;
+  height: 52vh;
   width: 90%;
-  font-family: "Arvo";
+  position: relative;
   display: flex;
   flex-direction: column;
   background-color: $alabaster;
@@ -41,27 +41,43 @@
 
   &__input {
     width: 80%;
-    border: 2px solid black;
+    border: 1px solid black;
     border-right: none;
+    font-size: .75rem;
+
+    @include tablet {
+      font-size: 1rem;
+    }
   }
 
   &__button {
-    width:20%;
+    width: 20%;
     background-color: $alabaster;
     color: $hiitmkr-black;
-    border: 2px solid black;
+    border: 1px solid black;
+    font-size: .5rem;
+
+    &--start {
+      margin-top: 2rem;
+    }
+
+    @include tablet {
+      font-size: 1rem;
+    }
   }
 
   &__results {
     width: 100%;
     margin-block: 1rem;
+    height: 55%;
   }
 }
 
 .music-player {
+  height: 23vh;
   background-color: $alabaster;
   padding: 1rem 1rem 0 1rem;
-  margin-block: 1rem;
+  margin-block: 2vh;
   margin-bottom: 5rem;
   width: 90%;
   margin-inline: 5%;
@@ -73,5 +89,4 @@
     width: 70%;
     margin-inline: 15%;
   }
-
 }

@@ -9,7 +9,6 @@ const spotifyApi = new SpotifyWebApi({
 
 export default function Player({ accessToken, playlist }) {
   const [play, setPlay] = useState(false);
-  // const [timer, setTimer] = useState(40);
   const [intervals, setIntervals] = useState(40);
   const trackUri0 = playlist[0]?.uri;
   let tracks = [playlist[0]?.uri];
@@ -43,21 +42,25 @@ export default function Player({ accessToken, playlist }) {
   const skipSong = () => {
     spotifyApi
       .skipToNext()
+      // .seek(60000)
+      .then(() => {
+        spotifyApi.seek(60000);
+      })
+      // .then(() => {
+      //   seekToPosition(60000);
+      // })
       .then(
         function () {
-          setIntervals(intervals - 1);
+          setIntervals(intervals => intervals - 1);
           console.log("Skip to next song", intervals);
         },
         function (err) {
           console.log("Something went wrong!", err);
         }
       )
-      .then(function () {
-        seekToPosition(60000);
-      });
   };
 
-  //set 30s interval before song change
+  //set time interval before song change
   useEffect(() => {
     const timeProg = setInterval(() => {
       skipSong();
