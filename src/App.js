@@ -4,9 +4,8 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 import "./App.scss";
 import { BrowserRouter } from "react-router-dom";
 
-
 const code = new URLSearchParams(window.location.search).get("code");
-
+console.log(code)
 function App() {
   return (
     <div className="app">

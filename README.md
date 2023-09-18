@@ -1,7 +1,5 @@
 # <span style="color:orangered">HIITmkr</span>
 
-<!-- Online demo: [SSL CoffeeDir](https://coffee-dir.herokuapp.com) | [No-SSL CoffeeDir](http://www.coffeedir.ca) -->
-
 ![HIITmkr Logo](src/assets/hiitmkr.png)
 
 ### Making your HIIT workout more fun and more encouraging!

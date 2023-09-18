@@ -76,7 +76,7 @@ export default function Dashboard({ code }) {
                 );
           }
           setPlaylist(newPlaylist);
-          console.log(newPlaylist);
+          // console.log(newPlaylist);
         });
       },
       function (err) {

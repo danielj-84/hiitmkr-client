@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import SpotifyPlayer from "react-spotify-web-playback";
 import SpotifyWebApi from "spotify-web-api-node";
 import "./Player.scss";
@@ -10,6 +10,12 @@ const spotifyApi = new SpotifyWebApi({
 export default function Player({ accessToken, playlist }) {
   const [play, setPlay] = useState(false);
   const [intervals, setIntervals] = useState(40);
+  const [intervalDuration, setIntervalDuration] = useState(5000);
+  const [remainingTime, setRemainingTime] = useState(5000); // Initial timer duration
+  const [isTimerActive, setIsTimerActive] = useState(false);
+  const [intervalStartTime, setIntervalStartTime] = useState(null);
+  const intervalRef = useRef(null);
+
   const trackUri0 = playlist[0]?.uri;
   let tracks = [playlist[0]?.uri];
 
@@ -40,46 +46,100 @@ export default function Player({ accessToken, playlist }) {
 
   //switch to next song
   const skipSong = () => {
-    spotifyApi
-      .skipToNext()
-      // .seek(60000)
-      .then(() => {
-        spotifyApi.seek(60000);
-      })
-      // .then(() => {
-      //   seekToPosition(60000);
-      // })
-      .then(
-        function () {
-          setIntervals(intervals => intervals - 1);
-          console.log("Skip to next song", intervals);
-        },
-        function (err) {
-          console.log("Something went wrong!", err);
-        }
-      )
+    spotifyApi.skipToNext().then(
+      function () {
+        seekToPosition(60000)
+        setIntervals((intervals) => intervals - 1);
+        setIntervalStartTime(Date.now());
+        setRemainingTime(intervalDuration);
+        console.log("Skip to next song", intervals);
+      },
+      function (err) {
+        console.log("Something went wrong!", err);
+      }
+    );
   };
+
+  console.log("remaining", remainingTime)
+  console.log("START", intervalStartTime)
 
   //set time interval before song change
   useEffect(() => {
-    const timeProg = setInterval(() => {
-      skipSong();
-    }, 10000);
+    if (play) {
+      setRemainingTime(intervalDuration);
+      if (intervalRef.current === null) {
+        intervalRef.current = setInterval(() => {
+          skipSong();
+        }, intervalDuration);
+      }
+    } else {
+      setRemainingTime(Date.now() - intervalStartTime)
+      setIntervalStartTime(Date.now())
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
 
     return () => {
-      clearInterval(timeProg);
+      clearInterval(intervalRef.current);
     };
   }, [play]);
+
+  // useEffect(() => {
+  //   let timerId = intervalRef.current;
+
+  //   if (play) {
+  //     if (timerId === null) {
+  //       if (intervalStartTime !== null) {
+  //         // Calculate the remaining time based on the previously set interval
+  //         const elapsedTime = Date.now() - intervalStartTime;
+  //         const remainingTime = intervalDuration - elapsedTime;
+
+  //         if (remainingTime > 0) {
+  //           timerId = setInterval(() => {
+  //             skipSong();
+  //           }, remainingTime);
+  //         } else {
+  //           // If remainingTime is non-positive, skip the song immediately
+  //           skipSong();
+  //         }
+  //       } else {
+  //         // No previous interval start time, start a new one
+  //         timerId = setInterval(() => {
+  //           skipSong();
+  //         }, intervalDuration);
+  //         setIntervalStartTime(Date.now());
+  //       }
+  //     }
+  //   } else {
+  //     clearInterval(timerId);
+  //     timerId = null;
+  //   }
+
+  //   // Update the current timer ID
+  //   intervalRef.current = timerId;
+
+  //   return () => {
+  //     clearInterval(timerId);
+  //   };
+  // }, [play, intervalDuration, intervalStartTime]);
 
   if (!accessToken) return null;
   return (
     <>
-      <h4 className={`player__timer ${intervals%2 === 0 ? "player__timer--high" : "player__timer--low"}`}>{intervals} intervals left!</h4>
+      <h4
+        className={`player__timer ${
+          intervals % 2 === 0 ? "player__timer--high" : "player__timer--low"
+        }`}
+      >
+        {intervals} intervals left!
+      </h4>
       <SpotifyPlayer
         token={accessToken}
         showSaveIcon
         callback={(state) => {
-          if (!state.isPlaying) setPlay(false);
+          if (!state.isPlaying) {
+            setPlay(false);
+          } else setPlay(true);
         }}
         play={play}
         uris={playlist ? tracks : []}
