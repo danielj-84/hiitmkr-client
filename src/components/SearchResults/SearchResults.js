@@ -7,6 +7,13 @@ import {
   Checkbox,
 } from "@material-ui/core";
 import "./SearchResults.scss";
+import ImageList from '@mui/material/ImageList';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
+import ListSubheader from '@mui/material/ListSubheader';
+import IconButton from '@mui/material/IconButton';
+import InfoIcon from '@mui/icons-material/Info';
+
 
 const SearchResults = ({ results, onChange }) => {
   const [checked, setChecked] = React.useState([]);
@@ -30,27 +37,29 @@ const SearchResults = ({ results, onChange }) => {
   const resetArtists = () => {
     setChecked([]);
   };
-
+  console.log(results)
   return (
     <>
       <button className="results__button" onClick={resetArtists}>
         Reset
       </button>
-      <List className="results__list">
-        {results.map((item, index) => (
-          <ListItem key={item.id} dense button onClick={handleToggle(item.id)}>
-            <ListItemIcon>
-              <Checkbox
-                edge={"start"}
-                checked={checked.indexOf(item.id) !== -1}
-                tabIndex={-1}
-                disableRipple
-              />
-            </ListItemIcon>
-            <ListItemText>{item.name}</ListItemText>
-          </ListItem>
-        ))}
-      </List>
+       <ImageList sx={{ width: "100%", height: "100%" }} cols={4}>
+      {results.map((item) => (
+        <ImageListItem key={item?.images?.[0]?.url} onClick={handleToggle(item.id)}>
+          <img
+            srcSet={`${item.img}?w=100&fit=crop&auto=format&dpr=2 2x`}
+            src={`${item?.images?.[1]?.url || item?.images?.[1]?.url}?w=248&fit=crop&auto=format`}
+            alt={item.title}
+            loading="lazy"
+            style={checked.indexOf(item.id) !== -1 ? {height: "100px", width: "100%", borderRadius: 5    } : {height: "100px", width: "100%", filter: 'grayscale(100%)', borderRadius: 5 }}
+          />
+          <ImageListItemBar
+            subtitle={item?.name}
+          />
+          {checked.indexOf(item.id) !== -1 && <InfoIcon color="error" style={{position: "absolute", top: 2, left: 2}}/>}
+        </ImageListItem>
+      ))}
+    </ImageList>
     </>
   );
 };

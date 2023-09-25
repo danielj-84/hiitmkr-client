@@ -84,44 +84,6 @@ export default function Player({ accessToken, playlist }) {
     };
   }, [play]);
 
-  // useEffect(() => {
-  //   let timerId = intervalRef.current;
-
-  //   if (play) {
-  //     if (timerId === null) {
-  //       if (intervalStartTime !== null) {
-  //         // Calculate the remaining time based on the previously set interval
-  //         const elapsedTime = Date.now() - intervalStartTime;
-  //         const remainingTime = intervalDuration - elapsedTime;
-
-  //         if (remainingTime > 0) {
-  //           timerId = setInterval(() => {
-  //             skipSong();
-  //           }, remainingTime);
-  //         } else {
-  //           // If remainingTime is non-positive, skip the song immediately
-  //           skipSong();
-  //         }
-  //       } else {
-  //         // No previous interval start time, start a new one
-  //         timerId = setInterval(() => {
-  //           skipSong();
-  //         }, intervalDuration);
-  //         setIntervalStartTime(Date.now());
-  //       }
-  //     }
-  //   } else {
-  //     clearInterval(timerId);
-  //     timerId = null;
-  //   }
-
-  //   // Update the current timer ID
-  //   intervalRef.current = timerId;
-
-  //   return () => {
-  //     clearInterval(timerId);
-  //   };
-  // }, [play, intervalDuration, intervalStartTime]);
 
   if (!accessToken) return null;
   return (

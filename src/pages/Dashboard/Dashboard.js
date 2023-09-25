@@ -89,7 +89,7 @@ export default function Dashboard({ code }) {
     <>
       <Header />
       <section className="search">
-        <h3 className="search__title">Choose your workout music</h3>
+        <h4 className="search__title">Choose your workout music</h4>
 
         <div className="search__bar">
           <input
